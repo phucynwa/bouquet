@@ -10,14 +10,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
-internal class BouquetPdfRender(
+class BouquetPdfRender(
     private val fileDescriptor: ParcelFileDescriptor,
     private val textForEachPage: List<String>,
     val width: Int,
     val height: Int,
     val portrait: Boolean
 ) {
-    private val pdfRenderer = PdfRenderer(fileDescriptor)
+    val pdfRenderer = PdfRenderer(fileDescriptor)
     val pageCount get() = pdfRenderer.pageCount
     private val mutex: Mutex = Mutex()
     private val coroutineScope = CoroutineScope(Dispatchers.Default + SupervisorJob())

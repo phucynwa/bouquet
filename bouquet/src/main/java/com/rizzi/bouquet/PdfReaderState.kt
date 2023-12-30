@@ -33,7 +33,7 @@ abstract class PdfReaderState(
     val file: File?
         get() = mFile
 
-    internal var pdfRender by mutableStateOf<BouquetPdfRender?>(null)
+    var pdfRender by mutableStateOf<BouquetPdfRender?>(null)
 
     internal var mLoadPercent by mutableStateOf(0)
     val loadPercent: Int
